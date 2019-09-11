@@ -16,7 +16,7 @@ class MapBikes extends Component {
   }
 
   componentDidMount () {
-    fetch(process.env.REACT_APP_GET_STATIONS_API)
+    fetch(process.env.REACT_APP_API_PROXY + process.env.REACT_APP_GET_STATIONS_IFNO)
       .then(res => res.json())
       .then(
         result => {
@@ -43,7 +43,7 @@ class MapBikes extends Component {
   }
 
   async getStationStatus(id) {
-     const response =  await fetch(process.env.REACT_APP_GET_STATION_STATUS, {
+     const response =  await fetch(process.env.REACT_APP_API_PROXY + process.env.REACT_APP_GET_STATION_STATUS, {
           method: 'POST',
           headers: {
             'Accept': 'application/json',
@@ -72,7 +72,7 @@ class MapBikes extends Component {
         <InfoWindow
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}>
-          <div>
+          <div className="MapBikes__infoWindow">
             <h2>{this.state.selectedPlaceName}</h2>
             <ul>
               <li>Available Bikes: <p>{this.state.selectedPlace.num_bikes_available}</p></li>

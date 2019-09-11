@@ -1,3 +1,10 @@
-.mapBikes {
-  width: 80%
+@import '_variables';
+
+.MapBikes__infoWindow {
+  ul {
+      list-style: none;
+      padding: 0;
+      font-weight: 600;
+      margin: 1.3rem 0 0 0;
+    }
 }
